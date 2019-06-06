@@ -44,7 +44,7 @@ port = config.get('ago', 'port')
 
 try:
     gis = GIS(portal, user, password, proxy=proxy, proxy_port=port)
-    search = gis.content.search(query="", item_type="", max_items=100000)
+    search = gis.content.search(query='', item_type='', max_items=100000)
 
     year = datetime.datetime.today().strftime('%Y')
     month = datetime.datetime.today().strftime('%m')
