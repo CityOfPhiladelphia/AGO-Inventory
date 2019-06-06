@@ -45,7 +45,7 @@ port = config.get('ago', 'port')
 
 try:
     gis = GIS(portal, user, password, proxy=proxy, proxy_port=port)
-    search = gis.content.search(query="", item_type="Web Map", max_items=100000)
+    search = gis.content.search(query='', item_type='Web Map', max_items=100000)
 
     li = []
 
@@ -78,6 +78,6 @@ try:
     writer.writerows(li)
 except Exception as e:
     logger.error('AGO service usage inventory failed: ' + str(e))
-    email_body = "AGO service usage inventory failure. Please see the log for details on server {}.".format(
+    email_body = 'AGO service usage inventory failure. Please see the log for details on server {}.'.format(
         socket.gethostbyname(socket.gethostname()))
     sendemail(email_sender, email_subject, email_body, email_recipients)
