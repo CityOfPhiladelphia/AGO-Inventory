@@ -57,6 +57,6 @@ try:
     df.to_csv(file, index=False)
 except Exception as e:
     logger.error('AGO item inventory failed: '+str(e))
-    email_body = "AGO item inventory failure. Please see the log for details on server {}.".format(
+    email_body = 'AGO item inventory failure. Please see the log for details on server {}.'.format(
         socket.gethostbyname(socket.gethostname()))
     sendemail(email_sender, email_subject, email_body, email_recipients)
