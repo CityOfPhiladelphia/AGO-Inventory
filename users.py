@@ -44,7 +44,7 @@ port = config.get('ago', 'port')
 
 try:
     gis = GIS(portal, user, password, proxy=proxy, proxy_port=port)
-    search = gis.users.search(query="", max_users=100000)
+    search = gis.users.search(max_users=100000)
 
     li = []
 
@@ -72,6 +72,6 @@ try:
     writer.writerows(li)
 except Exception as e:
     logger.error('AGO user inventory failed: ' + str(e))
-    email_body = "AGO user inventory failure. Please see the log for details on server {}.".format(socket.gethostbyname(
+    email_body = 'AGO user inventory failure. Please see the log for details on server {}.'.format(socket.gethostbyname(
         socket.gethostname()))
     sendemail(email_sender, email_subject, email_body, email_recipients)
